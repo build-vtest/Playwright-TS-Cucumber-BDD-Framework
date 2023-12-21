@@ -1,0 +1,37 @@
+{
+  "name": "play-ts-cucumber",
+  "version": "1.0.0",
+  "description": "Playwright Cucumber TS framework - The easiest way to learn",
+  "main": "index.js",
+  "scripts": {
+    "debug": "cross-env ENV=prod PWDEBUG=1 DEBUG=pw:api cucumber-js --config=config/cucumber.js",
+    "preprod-test": "npx ts-node src/utilities/report/init.ts",
+    "prod-test": "cross-env ENV=prod FORCE_COLOR=0 cucumber-js --config=config/cucumber.js || exit 0",
+    "postprod-test": "npx ts-node src/utilities/report/report.ts",
+    "predev-test": "npx ts-node src/utilities/report/init.ts",
+    "dev-test": "cross-env ENV=dev FORCE_COLOR=0 cucumber-js --config=config/cucumber.js || exit 0",
+    "postdev-test": "npx ts-node src/utilities/report/report.ts",
+    "preuat-test": "npx ts-node src/utilities/report/init.ts",
+    "uat-test": "cross-env ENV=uat FORCE_COLOR=0 cucumber-js --config=config/cucumber.js || exit 0",
+    "postuat-test": "npx ts-node src/utilities/report/report.ts",
+    "posttest": "npx ts-node src/utilities/report/report.ts",
+    "test:failed": "cucumber-js -p rerun @rerun.txt"
+  },
+  "keywords": [
+    "cucumber",
+    "cucumber - TS",
+    "playwright-cucumber"
+  ],
+  "author": "Vikram@VTEST",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^9.0.1",
+    "@playwright/test": "1.35.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.3",
+    "fs-extra": "^11.1.1",
+    "multiple-cucumber-html-reporter": "^3.3.0",
+    "ts-node": "^10.9.1",
+    "winston": "^3.8.2"
+  }
+}
